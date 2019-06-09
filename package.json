@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
@@ -26,8 +27,10 @@
     "chart.js": "^2.8.0",
     "compass-mixins": "^0.12.10",
     "core-js": "^2.5.4",
+    "express": "^4.17.1",
     "jquery": "^3.4.1",
     "ng2-charts": "^1.6.0",
+    "path": "^0.12.7",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
@@ -51,5 +54,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~2.9.2"
+  },
+  "engines": {
+    "node": "8.12.0",
+    "npm": "6.4.1"
   }
 }
