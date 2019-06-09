@@ -1,0 +1,61 @@
+<div id="quiz">
+  <div class="row" style="justify-content:center;">
+    <div [ngClass]="{'col-xl-6 col-md-6 col-sm-12 col-xs-12 left-section':mode=='result'}">
+      <mat-list *ngIf="mode=='quiz' && quiz">
+        <div class="list-item-style" *ngFor="let question of filteredQuestions; index as i;">
+          <div class="question-section">
+            <h3 class="question-text">{{i+1}}.
+              <span [innerHTML]="question.name"></span>
+            </h3>
+          </div>
+          <div class="row m-0 text-left options">
+            <div class="col-6" *ngFor="let option of question.options">
+              <div class="option">
+                <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected" (change)="onSelect(question, option);" />
+
+                <label class="font-weight-normal" [attr.for]="option.id">{{option.name}}</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </mat-list>
+
+      <mat-list *ngIf="mode=='result'">
+        <div class="list-item-style" *ngFor="let question of quiz.questions; index as i">
+          <div class="question-section">
+            <h3 class="question-text">{{i+1}}.
+              <span [innerHTML]="question.name"></span>
+            </h3>
+          </div>
+          <div class="row m-0 text-left options">
+            <div class="col-6" *ngFor="let option of question.options">
+              <div class="option">
+                <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected" (change)="onSelect(question, option);" />
+
+                <label class="font-weight-normal" [attr.for]="option.id">{{option.name}}</label>
+              </div>
+            </div>
+          </div>
+          <div class="correct-answer" *ngIf="isCorrect(question) == 'correct'">
+            <span>Correct Answer</span>
+          </div>
+          <div class="wrong-answer" *ngIf="isCorrect(question) != 'correct'">
+            <span>Wrong Answer</span>
+          </div>
+        </div>
+      </mat-list>
+      <div class="row m-0 mt-2">
+        <button class="btn btn-primary col-6" (click)="onSubmit();">Submit</button>
+        <button class="btn btn-primary col-6" (click)="onReset();">Clear</button>
+      </div>
+    </div>
+    <div *ngIf="mode=='result'" class="col-xl-6 col-md-6 col-sm-12 col-xs-12 right-section">
+      <div style="margin-top:25px;">
+        <canvas style="width:100% !important;" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+          [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>
