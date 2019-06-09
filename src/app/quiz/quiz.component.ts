@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { QuizService } from '../services/quiz.service';
 import { Option, Question, Quiz } from '../models/index';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-quiz',
@@ -50,7 +51,7 @@ export class QuizComponent implements OnInit {
   ];
   public barChartColors = ['black','black']
 
-  constructor(private quizService: QuizService) { }
+  constructor(private quizService: QuizService,private loaderService:LoaderService) { }
 
   ngOnInit() {
     this.quizes = this.quizService.getAll();
