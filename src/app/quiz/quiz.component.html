@@ -45,15 +45,21 @@
           </div>
         </div>
       </mat-list>
-      <div class="row m-0 mt-2">
-        <button class="btn btn-primary col-6" (click)="onSubmit();">Submit</button>
-        <button class="btn btn-primary col-6" (click)="onReset();">Clear</button>
+      <div class="row m-0 mb-5">
+        <button mat-button class="btn btn-style col-6" (click)="onSubmit();">Submit</button>
+        <button mat-button class="btn btn-style col-6" (click)="onReset();">Clear</button>
       </div>
     </div>
     <div *ngIf="mode=='result'" class="col-xl-6 col-md-6 col-sm-12 col-xs-12 right-section">
       <div style="margin-top:25px;">
-        <canvas style="width:100% !important;" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-          [legend]="barChartLegend" [chartType]="barChartType">
+        <canvas style="width:100% !important;" baseChart
+         [datasets]="barChartData" 
+         [labels]="barChartLabels" 
+         [options]="barChartOptions"
+          [legend]="barChartLegend" 
+          [chartType]="barChartType"
+          [colors] ="barChartColors"
+          >
         </canvas>
       </div>
     </div>

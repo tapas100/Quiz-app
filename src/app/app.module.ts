@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatInputModule, MatCheckboxModule, MatListModule} from '@angular/material';
+import {MatInputModule, MatCheckboxModule, MatListModule, MatButtonModule, MatRippleModule} from '@angular/material';
 import { ChartsModule } from 'ng2-charts';
+import { LoaderComponent } from './loader/loader.component';
+import { LoaderService } from './services/loader.service';
 @NgModule({
   declarations: [
     AppComponent,
-    QuizComponent
+    QuizComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -21,9 +24,11 @@ import { ChartsModule } from 'ng2-charts';
     MatInputModule,
     MatCheckboxModule,
     MatListModule,
-    ChartsModule
+    ChartsModule,
+    MatButtonModule,
+    MatRippleModule
   ],
-  providers: [],
+  providers: [LoaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

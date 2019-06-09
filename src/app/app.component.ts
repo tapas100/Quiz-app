@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { QuizComponent } from './quiz/quiz.component';
+import { LoaderService } from './services/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,18 @@ import { QuizComponent } from './quiz/quiz.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  loadComplete: boolean = false;
+  constructor(private loaderService: LoaderService) {
+    this.loaderService.loadStatus$.subscribe(res => {
+      setTimeout(() => {
+        this.loadComplete = res;
+      },3000)
+    })
+  }
+  ngOnInit(): void {
+     
+    this.loaderService.handleLoader(true);
+    
+  }
 }
+

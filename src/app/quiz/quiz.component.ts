@@ -48,6 +48,7 @@ export class QuizComponent implements OnInit {
   public barChartData = [
     { data: [1, 5], label: '' }
   ];
+  public barChartColors = ['black','black']
 
   constructor(private quizService: QuizService) { }
 
