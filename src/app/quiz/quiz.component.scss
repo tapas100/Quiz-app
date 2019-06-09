@@ -70,7 +70,10 @@
 .wrong-answer{
     color: red;
     padding-left: 15px;
+    padding-right: 15px;
     padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
 }
 
 :host ::ng-deep{

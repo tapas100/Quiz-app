@@ -10,11 +10,13 @@ import {MatInputModule, MatCheckboxModule, MatListModule, MatButtonModule, MatRi
 import { ChartsModule } from 'ng2-charts';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './services/loader.service';
+import { CounterComponent } from './counter/counter.component';
 @NgModule({
   declarations: [
     AppComponent,
     QuizComponent,
-    LoaderComponent
+    LoaderComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

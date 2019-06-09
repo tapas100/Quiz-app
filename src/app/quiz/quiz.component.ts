@@ -17,6 +17,8 @@ export class QuizComponent implements OnInit {
   quizName: string;
   no_of_correct = 0;   // No of correct answer 
   no_of_wrong = 0;     // No of wrong answer
+  percentage_score = 0;// Percentage Score
+
 
   public barChartOptions = {
     responsive: true,
@@ -47,7 +49,7 @@ export class QuizComponent implements OnInit {
   public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData = [
-    { data: [1, 5], label: '' }
+    { data: [0, 0], label: '' }
   ];
   public barChartColors = ['black','black']
 
@@ -113,6 +115,9 @@ export class QuizComponent implements OnInit {
       }
     })
 
+    this.percentage_score = (this.no_of_correct/answers.length)*100;
+
+    console.log('score',this.percentage_score)
     this.barChartData = [
       { data: [this.no_of_correct, this.no_of_wrong], label: '' }
     ];
@@ -120,6 +125,10 @@ export class QuizComponent implements OnInit {
   }
   onReset(){
      this.mode = 'quiz'
-     this.loadQuiz(this.quizName);  
+     this.loadQuiz(this.quizName); 
+     this.percentage_score = 0;
+     this.barChartData = [
+      { data: [0, 0], label: '' }
+    ]; 
   }
 }

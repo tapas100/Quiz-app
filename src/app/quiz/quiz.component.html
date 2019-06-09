@@ -1,6 +1,6 @@
 <div id="quiz">
   <div class="row" style="justify-content:center;">
-    <div [ngClass]="{'col-xl-6 col-md-6 col-sm-12 col-xs-12 left-section':mode=='result'}">
+    <div class="col-xl-6 col-md-6 col-sm-12 col-xs-12 left-section">
       <mat-list *ngIf="mode=='quiz' && quiz">
         <div class="list-item-style" *ngFor="let question of filteredQuestions; index as i;">
           <div class="question-section">
@@ -41,7 +41,7 @@
             <span>Correct Answer</span>
           </div>
           <div class="wrong-answer" *ngIf="isCorrect(question) != 'correct'">
-            <span>Wrong Answer</span>
+            <span>Wrong Answer</span><span style="color:purple;" *ngIf="isAnswered(question) != 'Answered'">Not Answered!</span>
           </div>
         </div>
       </mat-list>
@@ -50,9 +50,9 @@
         <button mat-button class="btn btn-style col-6" (click)="onReset();">Clear</button>
       </div>
     </div>
-    <div *ngIf="mode=='result'" class="col-xl-6 col-md-6 col-sm-12 col-xs-12 right-section">
+    <div class="col-xl-6 col-md-6 col-sm-12 col-xs-12 right-section">
       <div style="margin-top:25px;">
-        <canvas style="width:100% !important;" baseChart
+        <canvas  baseChart
          [datasets]="barChartData" 
          [labels]="barChartLabels" 
          [options]="barChartOptions"
@@ -62,6 +62,9 @@
           >
         </canvas>
       </div>
+       <div class="text-center">
+         <app-counter [countTo]="percentage_score"></app-counter>
+       </div>
     </div>
   </div>
 </div>
