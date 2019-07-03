@@ -1,5 +1,5 @@
 # QuizApp
-
+![](https://github.com/tapas100/Quiz-app/blob/master/AwesomeScreenshot-2019-07-03T23-06-52-659Z.gif)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
 
 ## Development server
